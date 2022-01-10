@@ -1929,19 +1929,5 @@ public class Metodos {
         return textFormat;
     }
 
-    public String ObtenerUsuario(String usuario) {
-
-
-        String usr="";
-
-       String[]nombreUsuario=usuario.split("@");
-
-       usr=nombreUsuario[0].toUpperCase();
-
-        logger.error("correo: "+usuario);
-        logger.error("usuario: "+usr);
-
-        return usr;
-    }
 
 }

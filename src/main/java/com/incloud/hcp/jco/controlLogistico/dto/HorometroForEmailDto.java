@@ -1,13 +1,16 @@
 package com.incloud.hcp.jco.controlLogistico.dto;
 
-public class HorometroForEmailDto {
-    private String nombre;
+import java.util.HashMap;
+import java.util.List;
 
-    public String getNombre() {
-        return nombre;
+public class HorometroForEmailDto {
+    private List<HashMap<String, Object>> horometrosAveriados;
+
+    public List<HashMap<String, Object>> getHorometrosAveriados() {
+        return horometrosAveriados;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setHorometrosAveriados(List<HashMap<String, Object>> horometrosAveriados) {
+        this.horometrosAveriados = horometrosAveriados;
     }
 }

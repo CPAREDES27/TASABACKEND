@@ -1,5 +1,6 @@
 package com.incloud.hcp.rest;
 
+import com.incloud.hcp.util.Mail.Dto.CorreoMensaje;
 import com.incloud.hcp.util.Mail.Dto.InfoEventoImports;
 import com.incloud.hcp.util.Mail.Dto.InfoHorometrosAveriadosImport;
 import com.incloud.hcp.util.Mail.Dto.CorreoDto;
@@ -50,26 +51,26 @@ public class CorreoRest {
     }
 
     @PostMapping(value = "/EnviarNotifDescTolvas", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Mensaje> EnviarNotifDescTolvas(@RequestBody NotifDescTolvasDto imports) {
+    public ResponseEntity<CorreoMensaje> EnviarNotifDescTolvas(@RequestBody NotifDescTolvasDto imports) {
 
         try {
-            return Optional.ofNullable(this.correoService.EnviarNotifDescTolvas(imports))
+            return Optional.ofNullable(this.correoService.EnviarNotifDescTolvas_btp(imports))
                     .map(l -> new ResponseEntity<>(l, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         } catch (Exception e) {
             throw new RuntimeException(e.toString());
         }
     }
 
-    @PostMapping(value = "/InformarHorometroAveriado", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Mensaje> InformarHorometroAveriado(@RequestBody NotifDescTolvasDto imports) {
+    /*@PostMapping(value = "/InformarHorometroAveriado", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<CorreoMensaje> InformarHorometroAveriado(@RequestBody NotifDescTolvasDto imports) {
 
         try {
-            return Optional.ofNullable(this.correoService.EnviarNotifDescTolvas(imports))
+            return Optional.ofNullable(this.correoService.EnviarNotifDescTolvas_btp(imports))
                     .map(l -> new ResponseEntity<>(l, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         } catch (Exception e) {
             throw new RuntimeException(e.toString());
         }
-    }
+    }*/
 
     @PostMapping(value = "/EnviarCorreosSiniestro", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Mensaje> EnviarCorreosSiniestro(@RequestBody InfoEventoImports imports) {
@@ -83,10 +84,10 @@ public class CorreoRest {
     }
 
     @PostMapping(value = "/EnviarInfoHorometroAveriado", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Mensaje> EnviarInfoHorometroAveriado(@RequestBody InfoHorometrosAveriadosImport imports) {
+    public ResponseEntity<CorreoMensaje> EnviarInfoHorometroAveriado(@RequestBody InfoHorometrosAveriadosImport imports) {
 
         try {
-            return Optional.ofNullable(this.correoService.EnviarInfoHorometroAveriado(imports))
+            return Optional.ofNullable(this.correoService.EnviarInfoHorometroAveriado_btp(imports))
                     .map(l -> new ResponseEntity<>(l, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         } catch (Exception e) {
             throw new RuntimeException(e.toString());

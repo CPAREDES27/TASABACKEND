@@ -47,6 +47,7 @@ public class PDFRolTripulacionConstantes {
 
 
 
+
     //Cabecera rol tripulacion
     public static String[]fieldRolTripulacion= new String[]{"N°", "APELLIDOS Y NOMBRES", "TITULO","CARGO A BORDO", "MATRICULA", "VIGENCIA"};
 
